@@ -1,0 +1,79 @@
+{
+  "name": "myapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "ios11": "react-native run-ios --scheme='org.reactjs.native.example.MyApp' --simulator='iPhone 11'",
+    "ios8": "react-native run-ios --scheme='org.reactjs.native.example.MyApp' --simulator='iPhone 8'",
+    "ios12": "react-native run-ios --scheme='org.reactjs.native.example.MyApp' --simulator='iPhone 12'",
+    "iosX": "react-native run-ios --scheme='org.reactjs.native.example.MyApp' --simulator='iPhone X'",
+    "beta": "ENVFILE=./ios/fastlane/.env.beta cd ./ios && bundle exec fastlane beta --env beta",
+    "alpha": "ENVFILE=./ios/fastlane/.env.alpha cd ./ios && bundle exec fastlane alpha --env alpha",
+    "relise": "ENVFILE=./ios/fastlane/.env.prod cd ./ios && bundle exec fastlane relise --env prod",
+    "cm": "git-cz",
+    "postinstall": "jetifier -r",
+    "doc": "./node_modules/.bin/esdoc",
+    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
+    "i": "yarn && cd ./ios && pod install",
+    "pod-update": "yarn && cd ./ios && pod update",
+    "cl": "rm -rf ./node_modules && rm -rf ./yarn.lock && rm -rf ./ios/Pods && rm -rf ./ios/Podfile.lock",
+    "pod-clear": "cd ios && rm -rf Podfile.lock && pod deintegrate && cd ..",
+    "run-ios-release": "npx react-native run-ios --configuration Release --simulator \"iPhone 8\"",
+    "clear-android": "cd android && ./gradlew clean && cd ../",
+    "build-android": "cd android && gradlew app:assembleDebug && cd ../",
+    "run-android-release": "npx react-native run-android --variant=release",
+    "build-release-bundle": "cd android && ./gradlew bundleRelease && cd ../",
+    "build-release-apk": "cd android && ./gradlew app:assembleRelease && cd ../",
+    "run-android": "(adb reverse tcp:8081 tcp:8081 || true) && npx react-native run-android",
+    "pod-pdate": "cd ./ios && pod install --repo-update && cd ../"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.7",
+    "@react-navigation/native": "^6.0.10",
+    "@react-navigation/native-stack": "^6.6.2",
+    "react": "18.0.0",
+    "react-native": "0.69.0",
+    "react-native-config": "^1.4.6",
+    "react-native-fbsdk-next": "^9.0.0",
+    "react-native-safe-area-context": "^4.3.1",
+    "react-native-screens": "^3.13.1",
+    "react-native-svg": "^12.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/react-native": "^0.69.0",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.32.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.70.3",
+    "react-native-svg-transformer": "^1.0.0",
+    "react-test-renderer": "18.0.0",
+    "reactotron-react-native": "^5.0.2",
+    "typescript": "^4.4.4"
+  },
+  "resolutions": {
+    "@types/react": "^18"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
